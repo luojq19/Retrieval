@@ -1,0 +1,28 @@
+data:
+  train_data_file: data/ec/swissprot_ec_complete_by2022-05-25_train.pt
+  valid_data_file: data/ec/swissprot_ec_complete_by2022-05-25_val.pt
+  test_data_file: data/ec/swissprot_ec_complete_after_2022-05-25_filtered.pt
+  test_data_file2: data/ec/price.pt
+  original_train_data_file: data/ec/swissprot_ec_complete_by2022-05-25.pt
+  label_file: data/ec/ec_list_by2022-05-25_price.json
+  label_name: ec
+  dataset_type: SequenceDataset
+
+model:
+  model_type: MLP
+  input_dim: 1280
+  num_layers: 5
+  hidden_dims: [5120, 5120, 5120, 5400]
+  out_dim: null
+  dropout: 0.5
+
+train:
+  seed: 0
+  batch_size: 10_000
+  num_epochs: 10_000
+  lr: 1.e-4
+  weight_decay: 0.0
+  patience: 20
+  loss: CrossEntropyLoss
+  optimizer: Adam
+  
